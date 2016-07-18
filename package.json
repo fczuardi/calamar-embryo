@@ -1,0 +1,48 @@
+{
+  "name": "calamar-embryo",
+  "version": "0.1.0",
+  "description": "boilerplate generator for Calamar javascript projects",
+  "main": "index.js",
+  "bin": {
+    "embryo": "bin/cli.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "shelljs": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3",
+    "eslint-config-calamar": "^2.1.1",
+    "npm-scripts-info": "^0.3.6"
+  },
+  "scripts-info": {
+    "build:npm": "Builds the package to be published on npm."
+  },
+  "scripts": {
+    "info": "npm-scripts-info",
+    "build:npm": "babel -d dist/npm/bin -D bin",
+    "postbuild:npm": "babel-node tasks/copyFilesToNpm.js"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "calamar"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fczuardi/calamar-embryo.git"
+  },
+  "keywords": [
+    "calamar",
+    "boilerplate"
+  ],
+  "author": "Fabricio C Zuardi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fczuardi/calamar-embryo/issues"
+  },
+  "homepage": "https://github.com/fczuardi/calamar-embryo#readme"
+}
