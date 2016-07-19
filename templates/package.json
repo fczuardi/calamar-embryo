@@ -1,0 +1,15 @@
+{
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "calamar"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "*",
+    "eslint-config-calamar": "*",
+    "npm-scripts-info": "*"
+  }
+}
