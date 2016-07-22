@@ -14,8 +14,12 @@ export default projectDir => {
 
     // empty package.json file with the dependencies and config
     // for using es2015 modules and the calamar eslint code style
-    const modulePath = './node_modules/calamar-embryo';
-    const templatesPathPrefix = shTest('-d', modulePath) ? modulePath : '.';
+    // const modulePath = './node_modules/calamar-embryo';
+    // const templatesPathPrefix = shTest('-d', modulePath) ? modulePath : '.';
+    const templatesPathPrefix = module.paths.find(
+        dir => shTest('-d', pathJoin(dir, 'calamar-embryo'))
+    );
+    console.log('--templatesPathPrefix--', templatesPathPrefix);
     cp(`${templatesPathPrefix}/templates/package.json`, pathJoin(projectDir, '.'));
 
     cd(projectDir);
