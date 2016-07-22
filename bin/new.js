@@ -5,6 +5,8 @@ import {
     mkdir, ShellString as shellString, test as shTest, cp, cd, exec as shExec, echo, cat
 } from 'shelljs';
 
+const projectName = 'calamar-embryo';
+
 export default projectDir => {
     // create the project dir
     mkdir('-p', projectDir);
@@ -17,11 +19,13 @@ export default projectDir => {
     // const modulePath = './node_modules/calamar-embryo';
     // const templatesPathPrefix = shTest('-d', modulePath) ? modulePath : '.';
     const templatesPathPrefix = module.paths.find(
-        dir => shTest('-d', pathJoin(dir, 'calamar-embryo'))
+        dir => shTest('-d', pathJoin(dir, projectName))
     );
     console.log('--templatesPathPrefix--', templatesPathPrefix);
-    cp(`${templatesPathPrefix}/templates/package.json`, pathJoin(projectDir, '.'));
-
+    cp(
+        pathJoin(templatesPathPrefix, projectName, 'templates', 'package.json'),
+        pathJoin(projectDir, '.')
+    );
     cd(projectDir);
     echo('Please wait a moment…');
     const child = shExec('npm update --save-dev', {}, () => null);
