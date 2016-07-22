@@ -24,8 +24,8 @@
     "prebuild:npm": "npm run clear:npm",
     "build:npm": "babel -d dist/npm/bin -D bin",
     "postbuild:npm": "babel-node tasks/copyFilesToNpm.js",
-    "preppp": "npm run build:npm",
-    "ppp": "npm version patch && git push && git push --tags && npm publish dist/npm"
+    "publish:npm": "npm run build:npm && npm publish dist/npm",
+    "ppp": "npm version patch && git push && git push --tags && npm run publish:npm"
   },
   "babel": {
     "plugins": [
