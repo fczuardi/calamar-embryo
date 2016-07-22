@@ -7,7 +7,6 @@
     "embryo": "bin/cli.js"
   },
   "dependencies": {
-    "git-controller": "^1.0.5",
     "minimist": "^1.2.0",
     "shelljs": "^0.7.0"
   },

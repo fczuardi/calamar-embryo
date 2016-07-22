@@ -4,7 +4,6 @@ import { join as pathJoin } from 'path';
 import {
     mkdir, ShellString as shellString, test as shTest, cp, cd, exec as shExec, echo, cat
 } from 'shelljs';
-import git from 'git-controller';
 
 const projectName = 'calamar-embryo';
 
@@ -26,9 +25,9 @@ export default projectDir => {
     );
     cd(projectDir);
     echo('Please wait a moment…');
-    const gitRepo = git(projectDir);
-    gitRepo.initSync(() => {
-        console.log('Git repository created.');
+    const gitInit = shExec('git init', {}, () => null);
+    gitInit.on('close', () => {
+        echo('Git repo initialized');
     });
     const child = shExec('npm update --save-dev', {}, () => null);
     child.on('close', () => {
