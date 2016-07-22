@@ -1,4 +1,6 @@
 {
+  "name": "PROJECT_NAME",
+  "version": "0.1.0",
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"

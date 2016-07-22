@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { join as pathJoin } from 'path';
+import { join as pathJoin, basename } from 'path';
 import {
-    mkdir, ShellString as shellString, test as shTest, cp, cd, exec as shExec, echo, cat
+    mkdir, ShellString as shellString, test as shTest,
+    cp, cd, exec as shExec, echo, cat, sed
 } from 'shelljs';
 
 const projectName = 'calamar-embryo';
@@ -23,6 +24,8 @@ export default projectDir => {
         pathJoin(templatesPathPrefix, projectName, 'templates', 'package.json'),
         pathJoin(projectDir, '.')
     );
+    sed('-i', 'PROJECT_NAME', basename(projectDir), pathJoin(projectDir, 'package.json'));
+
     cd(projectDir);
     echo('Please wait a moment…');
     const gitInit = shExec('git init', {}, () => null);
