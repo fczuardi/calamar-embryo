@@ -1,6 +1,6 @@
 {
   "name": "calamar-embryo",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "boilerplate generator for Calamar javascript projects",
   "main": "index.js",
   "bin": {
