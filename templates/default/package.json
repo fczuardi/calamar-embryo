@@ -1,6 +1,10 @@
 {
   "name": "PROJECT_NAME",
   "version": "0.1.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "NODE_DEBUG=dev babel-node ./src/index.js"
+  },
   "babel": {
     "plugins": [
       "transform-es2015-modules-commonjs"
