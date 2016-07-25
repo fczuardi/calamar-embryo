@@ -15,11 +15,8 @@ expects things to break. Use at your own risk.
 ## What's included
 
 - [Calamar coding styles][eslint-config-calamar]
+- [Babel CLI][babelcli]
 - [ES6 modules][transform-es2015-modules-commonjs]
-
-## What's not included
-
-- Babel cli (expected to be installed globally)
 
 See ```templates/default/package.json```
 
@@ -40,4 +37,5 @@ npm start
 ```
 
 [eslint-config-calamar]: https://github.com/calamar-io/eslint-config-calamar
+[babelcli]: https://babeljs.io/docs/usage/cli/
 [transform-es2015-modules-commonjs]: https://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/
