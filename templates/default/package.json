@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "main": "./src/index.js",
   "scripts": {
-    "start": "NODE_DEBUG=dev babel-node ./src/index.js"
+    "start": "NODE_DEBUG=dev babel-node ./src/index.js",
+    "build:npm": "babel --ignore node_modules,dist --out-dir ./dist/npm .",
+    "publish:npm": "npm run build:npm && npm publish dist/npm",
+    "ppp": "npm version patch && git push && git push --tags && npm run publish:npm"
   },
   "babel": {
     "plugins": [
