@@ -36,20 +36,20 @@ export default ({
     cp(pathJoin(templatesPath, 'index.js'), pathJoin(srcPath, '.'));
 
     cd(projectDir);
-    echo('Please wait a moment…');
 
     // git init
     const gitInit = spawn('git', ['init'], { stdio: 'inherit' }, () => null);
     gitInit.on('close', () => {
-        echo('Git repo initialized');
+        // npm init
+        const npmInit = spawn('npm', ['init'], { stdio: 'inherit' }, () => null);
+        npmInit.on('close', () => {
+            echo('Please wait a moment…');
+            // set dependencies version on package.json (and install them)
+            const npmArgs = noDev ? ['update', '--production'] : ['update', '--save-dev'];
+            const child = spawn('npm', npmArgs, { stdio: 'inherit' }, () => null);
+            child.on('close', () => {
+                echo(cat('./package.json'));
+            });
+        });
     });
-
-    // set dependencies version on package.json (and install them)
-    const npmArgs = noDev ? ['update', '--production'] : ['update', '--save-dev'];
-    console.log('noDev', noDev, npmArgs);
-    const child = spawn('npm', npmArgs, { stdio: 'inherit' }, () => null);
-    child.on('close', () => {
-        echo(cat('./package.json'));
-    });
-    return child;
 };
