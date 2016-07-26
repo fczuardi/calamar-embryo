@@ -2,15 +2,18 @@
   "name": "PROJECT_NAME",
   "version": "0.1.0",
   "main": "./src/index.js",
+  "license": "AGPL-3.0",
   "scripts": {
     "start": "NODE_DEBUG=dev babel-node ./src/index.js",
     "build:npm": "babel --ignore node_modules,dist --out-dir ./dist/npm .",
+    "postbuild:npm": "cp package.json dist/npm/.",
     "publish:npm": "npm run build:npm && npm publish dist/npm",
     "ppp": "npm version patch && git push && git push --tags && npm run publish:npm"
   },
   "babel": {
     "plugins": [
-      "transform-es2015-modules-commonjs"
+      "transform-es2015-modules-commonjs",
+      "transform-object-rest-spread"
     ]
   },
   "eslintConfig": {
@@ -19,6 +22,7 @@
   "devDependencies": {
     "babel-cli": "*",
     "babel-plugin-transform-es2015-modules-commonjs": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
     "eslint-config-calamar": "*",
     "npm-scripts-info": "*"
   }
