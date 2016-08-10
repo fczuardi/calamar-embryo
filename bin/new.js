@@ -9,12 +9,8 @@ import {
 
 const libName = 'calamar-embryo';
 
-export default ({
-    projectDir,
-    templateDir,
-    noDev
-    }
-) => {
+export default function (params) {
+    const { projectDir, templateDir, noDev } = params;
     const libPathParent = module.paths.find(dir => shTest('-d', pathJoin(dir, libName)));
     const templatesPath = pathJoin(libPathParent, libName, 'templates', templateDir);
     console.log('templatesPath', templatesPath);
@@ -52,4 +48,4 @@ export default ({
             });
         });
     });
-};
+}

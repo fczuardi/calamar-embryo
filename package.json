@@ -11,6 +11,7 @@
     "shelljs": "^0.7.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-destructuring": "^6.9.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3",
     "eslint-config-calamar": "^2.1.1",
     "npm-scripts-info": "^0.3.6"
@@ -30,7 +31,8 @@
   },
   "babel": {
     "plugins": [
-      "transform-es2015-modules-commonjs"
+      "transform-es2015-modules-commonjs",
+      "transform-es2015-destructuring"
     ]
   },
   "eslintConfig": {
