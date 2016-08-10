@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "main": "./src/index.js",
   "license": "AGPL-3.0",
+  "scripts-info": {
+    "build:npm": "Builds the transpiled npm package under dist/npm",
+    "ppp": "Increases the version patch number, push to github and publish to npm",
+    "mpp": "Increases the version minor number, push to github and publish to npm"
+  },
   "scripts": {
+    "info": "npm-scripts-info",
     "start": "NODE_DEBUG=dev babel-node ./src/index.js",
     "build:npm": "babel --ignore node_modules,dist --out-dir ./dist/npm .",
     "postbuild:npm": "cp package.json dist/npm/.",
