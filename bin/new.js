@@ -15,6 +15,7 @@ export default function (params) {
     const templatesPath = pathJoin(libPathParent, libName, 'templates', templateDir);
     console.log('templatesPath', templatesPath);
     const srcPath = pathJoin(projectDir, 'src');
+    const tasksPath = pathJoin(projectDir, 'tasks');
 
     // create the project dir
     mkdir('-p', projectDir);
@@ -30,6 +31,10 @@ export default function (params) {
     // create src path and index.js file
     mkdir('-p', srcPath);
     cp(pathJoin(templatesPath, 'index.js'), pathJoin(srcPath, '.'));
+
+    // create tasks path with npm-scripts helpers
+    mkdir('-p', tasksPath);
+    cp('-R', pathJoin(templatesPath, 'tasks'), pathJoin(projectDir, '.'));
 
     cd(projectDir);
 
