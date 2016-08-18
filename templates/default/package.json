@@ -32,6 +32,7 @@
     "babel-plugin-transform-object-rest-spread": "*",
     "eslint": "*",
     "eslint-plugin-import": "*",
+    "eslint-plugin-babel": "*",
     "eslint-config-calamar": "*",
     "npm-scripts-info": "*",
     "shelljs": "*"
